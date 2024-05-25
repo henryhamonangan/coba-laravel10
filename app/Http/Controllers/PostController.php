@@ -3,13 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
-use Illuminate\Http\Request;
 use App\Models\Post;
 use App\Models\User;
 
 class PostController extends Controller
 {
-    public function allposts() {
+    public function allposts()
+    {
         $title = '';
         if (request('category')) {
             $category = Category::firstWhere('slug', request('category'));
@@ -26,7 +26,8 @@ class PostController extends Controller
         ]);
     }
 
-    public function singlepost(Post $post) {
+    public function singlepost(Post $post)
+    {
         return view('post', [
             "title" => "Single Post",
             "active" => "posts",

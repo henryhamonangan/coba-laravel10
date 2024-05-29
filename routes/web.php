@@ -38,7 +38,7 @@ Route::get('/about', function () {
 Route::get('/posts', [PostController::class, 'allposts']);
 Route::get('posts/{post:slug}', [PostController::class, 'singlepost']);
 
-Route::get('/categories', function() {
+Route::get('/categories', function () {
     return view('categories', [
         'title' => 'Post Categories',
         'categories' => Category::all()
@@ -54,7 +54,7 @@ Route::get('/categories', function() {
 //     ]);
 // });
 
-Route::get('/authors', function() {
+Route::get('/authors', function () {
     return view('authors', [
         'title' => 'Author Posts',
         'authors' => User::all()
@@ -76,7 +76,7 @@ Route::post('/logout', [LoginController::class, 'logout']);
 Route::get('/register', [RegisterController::class, 'create'])->middleware('guest');
 Route::post('/register', [RegisterController::class, 'store']);
 
-Route::get('/dashboard', function() {
+Route::get('/dashboard', function () {
     return view('dashboard.index');
 })->middleware('auth');
 
